@@ -4,7 +4,7 @@ title: "Multivariate Analysis of Work-Life Balance Indicators"
 excerpt: Use of various multivariate analysis techniques to explore factors influencing work-life balance indicators, including PCA(principal component analysis), FA(factor analysis), cluster analysis, correspondence analysis, canonical correlation analysis, PLS regression.
 date: 2025-04-07 10:00:00 +1300
 categories: [Data Analysis]
-tags: [Multivariate Analysis, PCA]
+tags: [multivariate analysis, PCA]
 ---
 
 
@@ -31,39 +31,25 @@ factors influencing work-life balance indicators.
 - PLS regression identifies the most influential variables in predicting
   work-life balance scores.
 
-By integrating these analytical techniques, this project aims to
-comprehensively understand the factors that shape work-life balance,
-providing valuable insights for individuals, organizations and
-policymakers seeking to improve overall well-being.
+By integrating these analytical techniques, this project aims to comprehensively understand the factors that shape work-life balance, providing valuable insights for individuals, organizations and policymakers seeking to improve overall well-being.
 
-1.  **Introduction**
+**1.Introduction**
 
-This project aims to explore different aspects that influence work-life
-balance indicators. Previous studies have primarily focused on aspects
-of work-life balance, such as compensation, workload(S. N. B. Navarro,
-2018), or remote working(Nopdanai, 2021), without integrating a broader
-range of influencing factors.
+This project aims to explore different aspects that influence work-life balance indicators. Previous studies have primarily focused on aspects
+of work-life balance, such as compensation, workload, or remote working, without integrating a broader range of influencing factors.
 
-This study aims to fill this gap using multivariate analysis techniques
-by examining how different aspects of an individual\'s life affect
-work-life balance. The factors examined cover five domains: 'Healthy
-Body', 'Healthy Mind', 'Expertise', 'Connection', and 'Meaning'.
-Understanding these factors can support effective interventions that
-improve quality of life and productivity.
+This study aims to fill this gap using multivariate analysis techniques by examining how different aspects of an individual\'s life affect work-life balance. The factors examined cover five domains: 'Healthy Body', 'Healthy Mind', 'Expertise', 'Connection', and 'Meaning'. Understanding these factors can support effective interventions that improve quality of life and productivity.
 
-2.  **Materials and Methodologies**
+**2.Materials and Methodologies**
 
-    1.  Materials
+2.1 Materials
 
-        1.  Dataset Description
+2.1.1 Dataset Description
 
 The dataset for this project is a collection of responses from
-www.Authentic-Happiness.com. Data from a study evaluates how individuals
-shape their lifestyles, habits, and behaviors to optimize overall life
-satisfaction.
+*www.Authentic-Happiness.com*. Data from a study evaluates how individuals shape their lifestyles, habits, and behaviors to optimize overall life satisfaction.
 
-The dataset initially had 15,972 samples, from which 500 were selected
-for analysis.
+The dataset initially had 15,972 samples, from which 500 were selected for analysis.
 
 Looking at Figure 1, the sample of respondents has slightly fewer men
 than women. Regarding age distribution, the most significant number of
@@ -74,13 +60,11 @@ Figure 1: Sample distribution of respondents
 ![My photo](/myweb/assets/img/mv_img/media/image1.png)
 
 ![A graph of age and gender Description automatically
-generated](assets/img/mv_img/media/image1.png){width="5.284722222222222in"
-height="3.9638331146106736in"}
+generated](assets/img/mv_img/media/image1.png)
 
-2.  Variable Description
+2.1.2 Variable Description
 
-As shown in Table 1, this dataset contains 20 independent variables
-grouped into five categories:
+As shown in Table 1, this dataset contains 20 independent variables grouped into five categories:
 
 (1)  Healthy body
 
@@ -95,14 +79,12 @@ inclination to discover the world
 (5)  Meaning, evaluating one's compassion, generosity
 
 In addition, the \'WORK_LIFE_BALANCE_SCORE\', which ranges from 500 to
-800, is used as an indicator to measure work-life balance. This
-indicator is calculated by an algorithm using the 20 independent
-variables.
+800, is used as an indicator to measure work-life balance. This indicator is calculated by an algorithm using the 20 independent variables.
 
-Basic variables such as age and gender, as well as timestamps indicating
-when the questionnaire was completed, are also included in the dataset.
+Basic variables such as age and gender, as well as timestamps indicating when the questionnaire was completed, are also included in the dataset.
 
 Table 1: Variable Definition
+
 | **Segment**       | **Variable Name**        | **Definition**                                                                 |
 |-------------------|---------------------------|----------------------------------------------------------------------------------|
 | **Metadata**      | TIMESTAMP                | Date when survey was completed                                                  |
@@ -132,11 +114,11 @@ Table 1: Variable Definition
 |                   | sufficient_income        | 1 = insufficient, 2 = sufficient to cover basic expenses                        |
 |                   | live_vision              | Years ahead with a clear life vision [0 to 10]                                  |
 
-2.  Methodologies
+2.2 Methodologies
 
 2.2.1 Data Preprocessing
 
-\(1\) Standardized data
+(1) Standardized data
 
 Examining the range of variables revealed differences in the scales used
 to measure factors affecting work-life balance. This means that the data
@@ -145,8 +127,7 @@ needs to be standardized.
 Table 2: Range of independent variables
 
 ![A table with numbers and symbols Description automatically
-generated](assets/img/mv_img/media/image2.png){width="3.77963145231846in"
-height="3.475968941382327in"}
+generated](assets/img/mv_img/media/image2.png)
 
 Each independent variable was standardized to have a mean of 0 and a
 variance of 1. The mean of each variable was then checked to see if it
@@ -154,10 +135,9 @@ was close to 0 after processing to ensure standardization was correct.
 
 Table 3: Range of standardized independent variables
 
-![](assets/img/mv_img/media/image3.png){width="3.785877077865267in"
-height="3.3204691601049867in"}
+![](assets/img/mv_img/media/image3.png)
 
-\(2\) Create a new column
+(2) Create a new column
 
 For ease of analysis, a new variable \'score_level\' has been created
 based on the \'WORK_LIFE_BALANCE_SCORE\' to classify the sample into six
@@ -177,7 +157,7 @@ Level \'6\': Scores greater than 750.
 
 2.2.2 Methods of Multivariate Analysis
 
-\(1\) Principal Component Analysis (PCA)
+(1) Principal Component Analysis (PCA)
 
 PCA identifies patterns in data by transforming variables into a new set
 of uncorrelated variables called principal components. This study uses
@@ -185,7 +165,7 @@ PCA to examine how variables contribute to the variance in work-life
 balance scores and identify which variables are primarily responsible
 for differences in these scores.
 
-\(2\) Factor Analysis
+(2) Factor Analysis
 
 This study uses factor analysis to understand the essential drivers
 among the 20 predictor variables. Maximum likelihood extraction is used
@@ -193,7 +173,7 @@ to identify the latent factors underlying the observed variables. In
 addition, orthogonal varimax rotation is applied to improve the
 interpretability of the factors.
 
-\(3\) Cluster Analysis
+(3) Cluster Analysis
 
 Cluster analysis is a statistical technique to identify groups of
 similar objects or individuals within a dataset. This study uses the
@@ -201,21 +181,21 @@ VARCLUS procedure to perform a clustering analysis on the variables.
 This technique groups variables based on similarities and identifies
 clusters exhibiting similar patterns.
 
-\(4\) Correspondence analysis
+(4) Correspondence analysis
 
 Correspondence analysis examines trends in the distribution of work-life
 balance scores across different demographic groups(age and gender). It
 assesses whether specific distribution patterns exist within these
 groups.
 
-\(5\) Canonical Correlation Analysis
+(5) Canonical Correlation Analysis
 
 Canonical correlation analysis explores the relationships between
 different variable sets and how they influence each other. This study
 examines the correlations between different sets of predictor variables
 and their impact on work-life balance outcomes.
 
-\(6\) Partial Least Squares (PLS) regression analysis
+(6) Partial Least Squares (PLS) regression analysis
 
 PLS regression analysis determines the relative importance of variables
 in predicting work-life balance scores. As the work-life balance score
@@ -223,9 +203,9 @@ is derived from 20 predictor variables using a specific algorithm, PLS
 regression helps to identify which variables play a significant role in
 the prediction model.
 
-3.  **Result**
+**3.Result**
 
-    1.  Principal Components Analysis
+3.1 Principal Components Analysis
 
 Principal component analysis is performed to investigate which
 indicators best explain the variance in work-life balance scores.
@@ -237,8 +217,7 @@ the most significant information.
 
 Table 2: Eigenvalues of correlation matrix in PCA
 
-![](assets/img/mv_img/media/image4.png){width="3.132902449693788in"
-height="3.437659667541557in"}
+![](assets/img/mv_img/media/image4.png)
 
 The Scree plot in figure 2 shows a rapid eigenvalue decrease after the
 first principal component. Subsequent values gradually stabilize. In
@@ -249,8 +228,7 @@ Figure 2: PCA scree plot
 
 ![A graph of different components Description automatically generated
 with medium
-confidence](assets/img/mv_img/media/image5.png){width="6.298611111111111in"
-height="3.5430555555555556in"}
+confidence](assets/img/mv_img/media/image5.png)
 
 Although principal components 1 and 2 do not fully explain the variance,
 they still contain important information. Therefore, to find out how the
@@ -259,8 +237,7 @@ to focus on these first two principal components for an in-depth study.
 
 Figure 3: PCA component pattern
 
-![](assets/img/mv_img/media/image6.png){width="4.895833333333333in"
-height="4.895833333333333in"}
+![](assets/img/mv_img/media/image6.png)
 
 Figure 3 shows the loadings of each variable on the first two principal
 components.
@@ -284,8 +261,7 @@ work-life balance scores.
 Figure 4: PCA component scores
 
 ![A diagram of a component score Description automatically
-generated](assets/img/mv_img/media/image7.png){width="5.1875in"
-height="3.8909109798775154in"}
+generated](assets/img/mv_img/media/image7.png)
 
 Figure 4 shows the distribution of the samples under the two principal
 components. The number on each sample point represents the level of the
@@ -304,7 +280,7 @@ balance tend to be higher, while samples with higher balance are
 relatively lower. This suggests that the principal component 2 captures
 factors negatively associated with work-life balance.
 
-2.  Factor Analysis
+3.2 Factor Analysis
 
 Factor analysis is used to discover the underlying factors determining
 work-life balance scores and identify relationships between variables
@@ -327,8 +303,7 @@ most of the variation in the data.
 
 Table 3: FA preliminary eigenvalues
 
-![](assets/img/mv_img/media/image8.png){width="3.182037401574803in"
-height="3.6226279527559053in"}
+![](assets/img/mv_img/media/image8.png)
 
 After applying the varimax orthogonal rotation method, the results are
 as follows.
@@ -355,8 +330,7 @@ Figure 5: Result of the FA rotated factor pattern
 with medium
 confidence](assets/img/mv_img/media/image9.png){width="3.4305555555555554in"
 height="3.4305555555555554in"}
-![](assets/img/mv_img/media/image10.png){width="2.6582753718285215in"
-height="3.452066929133858in"}
+![](assets/img/mv_img/media/image10.png)
 
 The path diagram in figure 6 shows how the variables are related to each
 other through the factors. The numbers next to each variable indicate
@@ -382,7 +356,7 @@ Figure 6: FA path diagram
 generated](assets/img/mv_img/media/image11.png){width="4.694444444444445in"
 height="4.694444444444445in"}
 
-3.  Cluster Analysis
+3.3 Cluster Analysis
 
 Cluster analysis results illustrate how variables are grouped based on
 similarities, providing insight into which variables exhibit similar
@@ -392,15 +366,13 @@ identified.
 Table 4: Result of cluster analysis
 
 ![A screenshot of a data table Description automatically
-generated](assets/img/mv_img/media/image12.png){width="3.7037128171478564in"
-height="3.974562554680665in"}
+generated](assets/img/mv_img/media/image12.png)
 
 Figure 7: Dendrogram of cluster analysis
 
 ![A graph with black text Description automatically generated with
 medium
-confidence](assets/img/mv_img/media/image13.png){width="5.444444444444445in"
-height="4.083632983377078in"}
+confidence](assets/img/mv_img/media/image13.png)
 
 Figure 7 shows the dendrogram of cluster analysis, we can see five
 clusters in the graph.
@@ -437,7 +409,7 @@ Cluster 5: This cluster relates to health monitoring, including BMI
 range and sleep hours. These variables focus on health indicators and
 lifestyle habits, particularly weight management and sleep quality.
 
-4.  Correspondence Analysis
+3.4 Correspondence Analysis
 
 A correspondence analysis is carried out to see if there are patterns in
 the distribution of work-life balance scores across different
@@ -453,8 +425,7 @@ distribution of demographic work-life balance scores.
 
 Table 5: Result of correspondence analysis
 
-![](assets/img/mv_img/media/image14.png){width="4.389242125984252in"
-height="5.750052493438321in"}
+![](assets/img/mv_img/media/image14.png)
 
 Figure 8 shows the correlation between score levels across gender and
 age groups.
@@ -469,10 +440,9 @@ throughout the graph.
 Figure 8: Result of multiple correspondence analysis
 
 ![A graph with numbers and symbols Description automatically
-generated](assets/img/mv_img/media/image15.png){width="6.298611111111111in"
-height="4.725694444444445in"}
+generated](assets/img/mv_img/media/image15.png)
 
-5.  Canonical Correlation Analysis
+3.5 Canonical Correlation Analysis
 
 Canonical Correlation Analysis explores the relationships between
 different sets of variables. This analysis examines three combinations:
@@ -481,10 +451,9 @@ different sets of variables. This analysis examines three combinations:
 
 Table 6: Correlations between healthy mind and healthy body
 
-![](assets/img/mv_img/media/image16.png){width="6.298611111111111in"
-height="4.4944444444444445in"}
+![](assets/img/mv_img/media/image16.png)
 
-\(1\) Healthy mind and healthy body
+(1) Healthy mind and healthy body
 
 The correlations of FRUIT_VEGGIES and DAILY_STEPS with body1 are 0.6795
 and 0.7551, respectively, indicating a strong positive correlation. This
@@ -501,14 +470,13 @@ positive correlation between meditation and physical health indicators.
 Weekly meditation is, therefore, essential in improving overall
 well-being.
 
-\(2\) Connection and expertise
+(2) Connection and expertise
 
 Table 7: Correlations between connection and expertise
 
 ![A table with numbers and text Description automatically generated with
 medium
-confidence](assets/img/mv_img/media/image17.png){width="6.298611111111111in"
-height="4.509027777777778in"}
+confidence](assets/img/mv_img/media/image17.png)
 
 The high correlation between \'Time for Passion\' and E1 (0.7613)
 strongly suggests that an individual\'s investment in pursuing their
@@ -532,12 +500,11 @@ contribute to an individual\'s career success. This may be because
 helping others builds positive interpersonal relationships and a
 positive social image, which is essential for career success.
 
-\(3\) Meaning and expertise
+(3) Meaning and expertise
 
 Table 8: Correlations between meaning and expertise
 
-![](assets/img/mv_img/media/image18.png){width="6.298611111111111in"
-height="4.523611111111111in"}
+![](assets/img/mv_img/media/image18.png)
 
 \'Achievement\' correlates most strongly with E1 (0.8312), indicating
 that \'achievement\' is most represented in the \'expertise\' variable
@@ -558,7 +525,7 @@ life vision and professional achievements. This suggests that an
 individual\'s professional development often interacts with and
 reinforces their life goals and visions.
 
-6.  PLS Regression
+3.6 PLS Regression
 
 The work-life balance score is derived from 20 predictor variables using
 an algorithm. This raises the question of which variables are more
@@ -568,10 +535,9 @@ therefore conducted to answer this question.
 Figure 9: Variable importance plot
 
 ![A graph with blue dots and blue dots Description automatically
-generated](assets/img/mv_img/media/image19.png){width="5.604166666666667in"
-height="4.20343394575678in"}
+generated](assets/img/mv_img/media/image19.png)
 
-\(1\) Significant variables:
+(1) Significant variables:
 
 Time for passion: Making time for personal passions or hobbies is
 essential for a balanced life.
@@ -586,7 +552,7 @@ Places visited: Visiting different places can enrich personal cultural
 experiences and social interactions, positively impacting the quality of
 life.
 
-\(2\) Variables of lesser importance:
+(2) Variables of lesser importance:
 
 Daily shouting: seems to have less importance in the prediction model
 
@@ -598,15 +564,15 @@ Sleep hours: Although adequate sleep is crucial for health, sleep hours
 may not be as significant as other factors in determining work-life
 balance.
 
-4.  **Discussion**
+**4.Discussion**
 
-    1.  Summary of Key Findings
+4.1 Summary of Key Findings
 
 In this study, extensive analyses of the work-life balance dataset were
 carried out using various multivariate analysis techniques, leading to
 several significant findings:
 
-\(1\) PCA revealed several vital variables explaining the variance
+(1) PCA revealed several vital variables explaining the variance
 between work and life satisfaction. In the first principal component,
 \'Time for Passion\', \'Flow\' and \'Supporting Others\' had high
 positive loadings, indicating their significant contribution to
@@ -615,37 +581,37 @@ second principal component highlighted the importance of health-related
 habits and stress management, such as \"Daily Stress\", \"Sleep Hours\",
 and \"Weekly Meditation\", in influencing work-life balance scores.
 
-\(2\) In the FA, the rotated factor structure identified the underlying
+(2) In the FA, the rotated factor structure identified the underlying
 factors behind each predictor variable in the factor analysis. The first
 factor relates primarily to social support and a sense of
 accomplishment. In contrast, the second factor emphasizes the importance
 of health and stress management.
 
-\(3\) Cluster analysis revealed five clusters based on which variables
+(3) Cluster analysis revealed five clusters based on which variables
 were most similar, forming distinct groups: 'Personal Achievement and
 Social Interaction', 'Daily Health Habits', 'Stress and Emotion
 Management', 'Social Interaction and Life Satisfaction', and 'Health
 monitoring'.
 
-\(4\) Correspondence analysis examined the effect of gender and age on
+(4) Correspondence analysis examined the effect of gender and age on
 observed variables across demographic groups. No significant
 distributional differences were observed between different gender and
 age groups, suggesting that gender and age may not significantly impact
 the variables under investigation.
 
-\(5\) Canonical correlation analysis revealed significant relationships
+(5) Canonical correlation analysis revealed significant relationships
 between three different sets of variables: 'Healthy Mind and Healthy
 Body', 'Connection and Expertise', and 'Meaning and Expertise'. Each of
 these variables showed significant correlations.
 
-\(6\) The PLS regression analysis shows that variables such as \'Time
+(6) The PLS regression analysis shows that variables such as \'Time
 for passion\' and \'Supporting others\' play a significant role in
 predicting the work-life balance score, being the most influential
 variables in the model. Conversely, \'daily shouting\', \'loss of
 vacation\' and \'sleeping hours\' are identified as the least
 influential variables in the model.
 
-2.  Insights and Interventions
+4.2 Insights and Interventions
 
 The results of the study provide practical insights into work-life
 balance.
@@ -663,7 +629,7 @@ work-life balance highlights the need for comprehensive well-being
 programs, including the provision of stress workshops and mental health
 resources(n.d.).
 
-3.  Future Avenues for Research
+4.3 Future Avenues for Research
 
 Despite the valuable insights gained from this study, several potential
 avenues for future research need to be explored.
@@ -683,7 +649,7 @@ Finally, although this study found no significant effects of gender and
 age, further research using different analyses could determine whether
 there are potential effects not captured in this study.
 
-5.  **Conclusion**
+**5.Conclusion**
 
 This study used various multivariate analysis techniques to examine
 work-life balance factors, focusing on five categories of predictor
@@ -692,4 +658,3 @@ multivariate methods were used to analyse the data. While valuable
 insights were gained, the complexity of the factors influencing
 work-life balance outcomes requires further exploration with a larger
 dataset and more advanced analytical techniques.
-

@@ -96,14 +96,16 @@ The original dataset also contains image data in six spreadsheets, divided into 
 Table 2 below provides an overview of the image dataset.
 
 Table 2: Image data statistics
-| Type       | File Name                     | Number of Images | Features per Image |
-|------------|-------------------------------|------------------|---------------------|
-| labelled   | training_celeb20x20           | 3335             | 400                 |
-|            | training_celeb50x50           | 3335             | 2500                |
-|            | training_celeb100x100         | 3335             | 10000               |
-| unlabelled | unlabelledtest_celeb20x20     | 3335             | 400                 |
-|            | unlabelledtest_celeb50x50     | 3335             | 2500                |
-|            | unlabelledtest_celeb100x100   | 3335             | 10000               |
+
+| Type       | File Name                   | Number of Images | Features per Image |
+|------------|-----------------------------|------------------|---------------------|
+| labelled   | training_celeb20x20         | 3335             | 400                 |
+|            | training_celeb50x50         | 3335             | 2500                |
+|            | training_celeb100x100       | 3335             | 10000               |
+| unlabelled | unlabelledtest_celeb20x20   | 3335             | 400                 |
+|            | unlabelledtest_celeb50x50   | 3335             | 2500                |
+|            | unlabelledtest_celeb100x100 | 3335             | 10000               |
+
 
 2.1.1.3 Selected dataset for analysis
 
@@ -130,25 +132,18 @@ of the first column of the image) to c100r100.
 In the unlabelled 100x100 dataset, the columns from the 1st to the
 10000th are all feature variables, and there is no \'celeb\' variable.
 
-2.  Methodologies
+2.2 Methodologies
 
-    1.  Data Preprocessing
+2.2.1  Data Preprocessing
 
 2.2.1.1 A data integrity check was conducted on the dataset to identify
 any missing values, outliers, or duplicates. One duplicate row was then
 deleted. The distribution of data for each celebrity was then analyzed.
 
 2.2.1.2 Reshape data
-
-As shown in figure 1, each row of data extracted from the dataset is
-converted into two shapes. The first shape is 100x100x1, representing a
-single-channel grayscale image used in ANN and OpenCV models. The second
-shape is 100x100x3, representing an RGB image used in CNN models. This
-format is ideal for deep learning models, especially convolutional
+As shown in figure 1, each row of data extracted from the dataset is converted into two shapes. The first shape is 100x100x1, representing a single-channel grayscale image used in ANN and OpenCV models. The second shape is 100x100x3, representing an RGB image used in CNN models. This format is ideal for deep learning models, especially convolutional
 neural networks, as it allows them to handle images with color
-information and complex features. The data reshaping is to meet the
-input requirements of different models, thereby enabling them to process
-and analyze the image data more effectively.
+information and complex features. The data reshaping is to meet the input requirements of different models, thereby enabling them to process and analyze the image data more effectively.
 
 Figure 1: Data reshaping process
 
@@ -177,22 +172,22 @@ We utilize the Sparse label encoding method. In this method, category
 labels are represented directly as integers. This approach is highly
 effective for handling large datasets.
 
-2.  Data Split
+2.2.2 Data Split
 
 The 100 x 100 unlabelled dataset was divided into the following
 proportions:
 
-\(1\) Training set (70%): used for the model training process and
+(1) Training set (70%): used for the model training process and
 contains most data to ensure the model has sufficient learning
 information.
 
-\(2\) Validation set (20%): used for performance validation during the
+(2) Validation set (20%): used for performance validation during the
 model training process to avoid overfitting.
 
-\(3\) Test set (10%): used to evaluate the final performance of the
+(3) Test set (10%): used to evaluate the final performance of the
 model after model training is complete.
 
-3.  Algorithm Description
+2.2.3 Algorithm Description
 
 2.2.3.1 Artificial Neural Network (ANN)
 
@@ -261,7 +256,7 @@ After a series of adjustments and optimizations, we selected a specific
 CNN model, as shown in Figure 4. This model\'s design is centered around
 two key components: the model architecture and model optimization.
 
-\(1\) Model architecture 
+(1) Model architecture 
 
 The model architecture was developed using MobileNetV2 as the
 foundational structure, incorporating additional custom layers to
@@ -303,7 +298,7 @@ Output layer: Fully connected layer using a softmax activation function,
 which transforms the input into a probability distribution and
 calculates the probability of each celebrity category.
 
-\(2\) Model Training Optimization
+(2) Model Training Optimization
 
 In the compiling and fitting session of the CNN model, we used some
 optimization strategies to improve the performance of the model:
@@ -324,7 +319,7 @@ c)  Early stopping: Monitors the model\'s performance on the validation
     several epochs. This prevents overfitting of the training data and
     saves time and computational resources.
 
-    1.  Evaluation metrics
+2.2.4 Evaluation metrics
 
 2.2.4.1 Precision
 
@@ -376,27 +371,20 @@ effectiveness in predicting the target variable on the training and
 validation datasets over the epochs. This comparison helps assess the
 model\'s performance and its ability to generalize to unseen data.
 
-3.  **Result**
+**3.Result**
 
-    1.  Data Preprocessing
+3.1 Data Preprocessing
 
-        1.  Data clean
+3.1.1 Data clean
 
 Figure 5: Distribution of Data per Celebrity
 
-Figure 5 illustrates the quantity of image data for each celebrity,
-demonstrating variations between them. Robert Downey Jr. and Alexandra
-Daddario have the most significant number of images, with approximately
-220 images each. Conversely, Taylor Swift, Emma Stone, Zendaya, and
-Dwayne Johnson have the lowest data volumes, with approximately 120
-images each. The discrepancy in data volume between the highest and
-lowest categories is almost twice as significant.
+Figure 5 illustrates the quantity of image data for each celebrity, demonstrating variations between them. Robert Downey Jr. and Alexandra Daddario have the most significant number of images, with approximately 220 images each. Conversely, Taylor Swift, Emma Stone, Zendaya, and
+Dwayne Johnson have the lowest data volumes, with approximately 120 images each. The discrepancy in data volume between the highest and lowest categories is almost twice as significant.
 
-The discrepancy in the data volume may bias our model, which could
-affect its performance in categories with less data. This issue may
-indicate a challenge in model training.
+The discrepancy in the data volume may bias our model, which could affect its performance in categories with less data. This issue may indicate a challenge in model training.
 
-2.  Reshaping data
+3.1.2 Reshaping data
 
 To meet the input requirements of the model, we reshaped each row of
 data in the table dataset to 100x100x1, meaning that each piece of image
@@ -409,9 +397,9 @@ Figure 6: Preview of reshaping data after converting to image
 
 ![](assets/img/ml_img/media/image5.png)
 
-2.  Model result
+3.2 Model result
 
-    1.  ANN
+3.2.1 ANN
 
 After training the ANN model, it was tested on the test set, achieving a
 final accuracy of 29%.
@@ -477,7 +465,7 @@ Furthermore, the relatively low and fluctuating validation accuracy and
 the stable but low test accuracy suggest that the model is
 not generalizing well to new data. 
 
-2.  OpenCV
+3.2.2 OpenCV
 
 After testing the OpenCV model on a test set, it achieved a final
 accuracy of 43%.
@@ -536,7 +524,7 @@ record training and validation accuracy for each epoch. Consequently,
 there is no concept of plotting training, validation, and test accuracy
 graphs for the OpenCV model.
 
-3.  CNN
+3.2.3 CNN
 
 3.2.3.1 Precision, recall, F1-score
 
@@ -588,7 +576,7 @@ optimizing. The test accuracy is close to the validation accuracy. It
 reaches a value of almost 80%, indicating that the model has good
 generalization ability and can maintain high accuracy on new data.
 
-3.  Models Performance Comparison
+3.3 Models Performance Comparison
 
 Figure 15: Model comparison
 
@@ -607,7 +595,7 @@ the ANN and OpenCV models. It obtained the highest precision, recall, F1
 score and accuracy scores, making it the most efficient and reliable
 model for this image recognition task.
 
-4.  Model Implementation
+3.4 Model Implementation
 
 Following the evaluation of three models, the CNN model was selected as
 the most suitable implementation.

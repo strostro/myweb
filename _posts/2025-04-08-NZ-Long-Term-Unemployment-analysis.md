@@ -13,27 +13,13 @@ toc: true
 
 In recent years, the economic decline in New Zealand has resulted in a persistent rise in joblessness, posing significant difficulties for numerous individuals. This economic situation may negatively impact not only individual well-being but also the well-being of society as a whole. Particularly in the context of the economic downturn, vulnerable groups, especially children and families living in poverty, face challenging situations. This report analyzes how continued unemployment affects individual well-being, with a particular emphasis on the impact of well-being on children, including their health and poverty status. By examining these key factors, we hope to understand better the challenges New Zealand currently faces and explore practical solutions to these problems.
 
-#### 1.1 Datasets used
-
-1. shared_prosperity_assignment_dataset_mangled.csv
-2. Data documentation.csv
-3. anxiety_adult.csv
-4. anxiety_child.csv
-5. After-hours_care_unmet_need_adult.csv
-6. After-hours_care_unmet_need_child.csv
-7. unemployment_lt.csv
-8. 3+ vegetables a day.csv
-9. Poverty, 40% AL, child.csv
-10. Poverty, 50% AL, child.csv
-11. Poverty, 60% AL, child.csv
-
-#### 1.2 Dataset sources
+#### 1.1 Dataset sources
 
 1. Ministry of Health
 2. Ministry of Social Development
 3. OECD
 
-#### 1.3 Research Questions
+#### 1.2 Research Questions
 
 1. Does long-term unemployment affect the health and well-being of individuals？
 2. How has the long-term unemployment rate impacted various aspects of children's well-being?
@@ -41,9 +27,9 @@ In recent years, the economic decline in New Zealand has resulted in a persisten
 4. How does the economic downturn affect families with children at different poverty lines?
 5. How does long-term unemployment affect households at varying poverty thresholds over time?
 
-#### 1.4 Executive Summary
+#### 1.3 Executive Summary
 
-##### 1.4.1 Data wrangling
+##### 1.3.1 Data wrangling
 
 1. rename all column names to improve clarity
 2. select columns from the raw dataset  
@@ -63,7 +49,7 @@ In recent years, the economic decline in New Zealand has resulted in a persisten
 (2) checking the missing value to see if all null values have been processed  
 (3) Plotting the histograms to check the smoothness of the time series data  
 
-##### 1.4.2 EDA/Data Visulisation
+##### 1.3.2 EDA/Data Visulisation
 
 1. use a heat map to view the correlation between the variables as a whole
 2. add new datasets(Anxiety_adult.csv, Anxiety_child.csv, After-hours_care_unmet_need_adult.csv, After-hours_care_unmet_need_child.csv, Unemployment_lt.csv) on health, plot a Scatter Plot Matrix to explore the correlation between the variables
@@ -71,7 +57,7 @@ In recent years, the economic decline in New Zealand has resulted in a persisten
 Pose a question for analysis:
 How has the long-term unemployment rate impacted various aspects of children's well-being?
 
-##### 1.4.3 Analysis
+##### 1.3.3 Analysis
 
 1. Examines the impact of the long-term unemployment rate on the quality of children's diets and access to nutritious food  
 (1) import data on nutrition  
@@ -106,9 +92,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib
 import matplotlib.pyplot as plt
-```
 
-```python
 #import data
 df = pd.read_csv("datasets/shared_prosperity_assignment_dataset_mangled.csv")
 
@@ -2510,5 +2494,3 @@ However, the influences on individual well-being are multifaceted. External inte
 3. Economic stress can indirectly affect children via adults' emotional well-being
 4. The worsening economy causes more families with children to fall below the poverty line
 5. Households at the lowest poverty levels rarely benefit from external measures
-
-
