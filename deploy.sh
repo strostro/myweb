@@ -3,7 +3,6 @@
 set -e
 
 echo "📝 Step 0: Commit updates to main..."
-
 git add .
 git commit -m "chore: update site content" || echo "✅ No changes to commit"
 git push origin main
@@ -15,11 +14,11 @@ echo "📁 Step 2: Deploy _site to gh-pages branch..."
 
 cd _site
 
+# Clean up previous git history
+rm -rf .git
 git init
-git remote remove origin 2> /dev/null
-git remote add origin https://github.com/strostro/myweb.git
-git branch -D gh-pages 2> /dev/null      # ✅ 删除已有的 gh-pages 分支（如果有）
 git checkout -b gh-pages
+git remote add origin https://github.com/strostro/myweb.git
 
 git add .
 git commit -m "deploy: publish site"
