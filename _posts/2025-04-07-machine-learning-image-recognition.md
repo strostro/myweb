@@ -1,10 +1,10 @@
 ---
 title: Machine Learning Models for Image Recognition 
-excerpt: Three models (ANN, OpenCV and CNN) were trained to provide classification predictions for 19 specified celebrities.  TensorFlow and scikit-learn for model training and evaluation.
+description: Three models (ANN, OpenCV and CNN) were trained to provide classification predictions for 19 specified celebrities.  TensorFlow and scikit-learn for model training and evaluation.
 date: 2025-04-07 11:33:00 +0800
 categories: [MachineLearning]
 tags: [machine learning, data mining, TensorFlow, Scikit-Learn]
-pin: true
+pin: false
 math: true
 mermaid: true
 image:

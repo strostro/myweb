@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Multivariate Analysis of Work-Life Balance Indicators"
-excerpt: Use of various multivariate analysis techniques to explore factors influencing work-life balance indicators, including PCA(principal component analysis), FA(factor analysis), cluster analysis, correspondence analysis, canonical correlation analysis, PLS regression.
+description: Use of various multivariate analysis techniques to explore factors influencing work-life balance indicators, including PCA(principal component analysis), FA(factor analysis), cluster analysis, correspondence analysis, canonical correlation analysis, PLS regression.
 date: 2025-04-07 10:00:00 +1300
 categories: [Data Analysis]
 tags: [multivariate analysis, PCA]
@@ -57,10 +57,8 @@ respondents is in the 21-35 age group, with the smallest proportion in
 the under-20 age group.
 
 Figure 1: Sample distribution of respondents
-![My photo](/myweb/assets/img/mv_img/media/image1.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image1.png"  style="width:80%;">
 
-![A graph of age and gender Description automatically
-generated](assets/img/mv_img/media/image1.png)
 
 2.1.2 Variable Description
 
@@ -126,8 +124,7 @@ needs to be standardized.
 
 Table 2: Range of independent variables
 
-![A table with numbers and symbols Description automatically
-generated](assets/img/mv_img/media/image2.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image2.png"  style="width:80%;">
 
 Each independent variable was standardized to have a mean of 0 and a
 variance of 1. The mean of each variable was then checked to see if it
@@ -135,7 +132,7 @@ was close to 0 after processing to ensure standardization was correct.
 
 Table 3: Range of standardized independent variables
 
-![](assets/img/mv_img/media/image3.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image3.png"  style="width:80%;">
 
 (2) Create a new column
 
@@ -217,7 +214,7 @@ the most significant information.
 
 Table 2: Eigenvalues of correlation matrix in PCA
 
-![](assets/img/mv_img/media/image4.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image4.png"  style="width:80%;">
 
 The Scree plot in figure 2 shows a rapid eigenvalue decrease after the
 first principal component. Subsequent values gradually stabilize. In
@@ -226,9 +223,7 @@ components cumulatively explain about 30% of the variance.
 
 Figure 2: PCA scree plot
 
-![A graph of different components Description automatically generated
-with medium
-confidence](assets/img/mv_img/media/image5.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image5.png"  style="width:80%;">
 
 Although principal components 1 and 2 do not fully explain the variance,
 they still contain important information. Therefore, to find out how the
@@ -237,7 +232,7 @@ to focus on these first two principal components for an in-depth study.
 
 Figure 3: PCA component pattern
 
-![](assets/img/mv_img/media/image6.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image6.png"  style="width:80%;">
 
 Figure 3 shows the loadings of each variable on the first two principal
 components.
@@ -260,8 +255,7 @@ work-life balance scores.
 
 Figure 4: PCA component scores
 
-![A diagram of a component score Description automatically
-generated](assets/img/mv_img/media/image7.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image7.png"  style="width:80%;">
 
 Figure 4 shows the distribution of the samples under the two principal
 components. The number on each sample point represents the level of the
@@ -303,7 +297,7 @@ most of the variation in the data.
 
 Table 3: FA preliminary eigenvalues
 
-![](assets/img/mv_img/media/image8.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image8.png"  style="width:80%;">
 
 After applying the varimax orthogonal rotation method, the results are
 as follows.
@@ -326,11 +320,8 @@ individual health status.
 
 Figure 5: Result of the FA rotated factor pattern
 
-![A graph with a number of words Description automatically generated
-with medium
-confidence](assets/img/mv_img/media/image9.png){width="3.4305555555555554in"
-height="3.4305555555555554in"}
-![](assets/img/mv_img/media/image10.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image9.png"  style="width:80%;">
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image10.png"  style="width:80%;">
 
 The path diagram in figure 6 shows how the variables are related to each
 other through the factors. The numbers next to each variable indicate
@@ -352,9 +343,7 @@ pattern figure.
 
 Figure 6: FA path diagram
 
-![A diagram of a diagram Description automatically
-generated](assets/img/mv_img/media/image11.png){width="4.694444444444445in"
-height="4.694444444444445in"}
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image11.png"  style="width:80%;">
 
 3.3 Cluster Analysis
 
@@ -365,14 +354,11 @@ identified.
 
 Table 4: Result of cluster analysis
 
-![A screenshot of a data table Description automatically
-generated](assets/img/mv_img/media/image12.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image12.png"  style="width:80%;">
 
 Figure 7: Dendrogram of cluster analysis
 
-![A graph with black text Description automatically generated with
-medium
-confidence](assets/img/mv_img/media/image13.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image13.png"  style="width:80%;">
 
 Figure 7 shows the dendrogram of cluster analysis, we can see five
 clusters in the graph.
@@ -424,8 +410,7 @@ frequencies at the extremes. There are no apparent patterns in the
 distribution of demographic work-life balance scores.
 
 Table 5: Result of correspondence analysis
-
-![](assets/img/mv_img/media/image14.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image14.png"  style="width:80%;">
 
 Figure 8 shows the correlation between score levels across gender and
 age groups.
@@ -439,8 +424,7 @@ throughout the graph.
 
 Figure 8: Result of multiple correspondence analysis
 
-![A graph with numbers and symbols Description automatically
-generated](assets/img/mv_img/media/image15.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image15.png"  style="width:80%;">
 
 3.5 Canonical Correlation Analysis
 
@@ -451,7 +435,7 @@ different sets of variables. This analysis examines three combinations:
 
 Table 6: Correlations between healthy mind and healthy body
 
-![](assets/img/mv_img/media/image16.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image16.png"  style="width:80%;">
 
 (1) Healthy mind and healthy body
 
@@ -474,9 +458,7 @@ well-being.
 
 Table 7: Correlations between connection and expertise
 
-![A table with numbers and text Description automatically generated with
-medium
-confidence](assets/img/mv_img/media/image17.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image17.png"  style="width:80%;">
 
 The high correlation between \'Time for Passion\' and E1 (0.7613)
 strongly suggests that an individual\'s investment in pursuing their
@@ -503,8 +485,7 @@ positive social image, which is essential for career success.
 (3) Meaning and expertise
 
 Table 8: Correlations between meaning and expertise
-
-![](assets/img/mv_img/media/image18.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image18.png"  style="width:80%;">
 
 \'Achievement\' correlates most strongly with E1 (0.8312), indicating
 that \'achievement\' is most represented in the \'expertise\' variable
@@ -534,8 +515,7 @@ therefore conducted to answer this question.
 
 Figure 9: Variable importance plot
 
-![A graph with blue dots and blue dots Description automatically
-generated](assets/img/mv_img/media/image19.png)
+<img src="{{ site.baseurl }}/assets/img/mv_img/media/image19.png"  style="width:80%;">
 
 (1) Significant variables:
 

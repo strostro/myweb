@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "How Pricing and Promotions Drive Sales Growth"
-excerpt: 	This study investigates how pricing and promotional strategies, including competitor influence, impact the sales of Herbal Essences using the SCAN*PRO model and store-level scanner data.
+description: This study investigates how pricing and promotional strategies, including competitor influence, impact the sales of Herbal Essences using the SCAN*PRO model and store-level scanner data.
 date: 2025-04-09 10:00:00 +1300
 categories: [Data Analysis]
 tags: [marketing analysis, data modelling]
 toc: true
+math: true
 ---
 
 
@@ -44,87 +45,55 @@ Key findings include:
 
 Data analysis was performed using SAS Enterprise Miner (SAS EM).
 
-**1. Introduction**
+## 1.Introduction
 
-In marketing, understanding the impact of pricing on sales is critical
-for brands to increase market share and profitability. Even small
-changes in price can influence consumer behavior(Malc et al., 2016).
-This can lead to shifts in market share and sales volume. In highly
-competitive industries, brands compete by pricing and promoting
-different products.
+Understanding the impact of pricing on sales is critical for brands seeking to increase market share and profitability. The SCAN*PRO model is a multiplicative model that quantifies the effect of pricing and promotions on unit sales at the store level.
 
-The SCAN\*PRO model is a multiplicative model that quantifies the impact
-of promotional activities on a brand\'s unit sales at the store level.
-It can effectively account for the influence of various marketing mix
-elements such as price, promotion, and distribution on product sales(van
-Heerde et al., 2002).
+This study explores:
 
-This study aims to explore the factors that influence sales of the
-Herbal Essences brand, which has the highest market share in the
-provided data set. Another key objective is to evaluate the
-applicability of Scan Pro models in analyzing store-level scanner data.
+- How Herbal Essences' pricing and promotions affect its sales
 
-**2. Data Description**
+- The role of store-level fixed effects
 
-**2.1 Dataset**
+- The influence of competitor pricing on focal brand sales
 
-The dataset initially included 5,195 records
-across 11 brands, 109 weeks, and 48 stores.
+## 2.Data Description
 
-2.1.1 Variables
+### 2.1 Dataset
 
-Explanatory Variables: actpr2, actpr3, actpr4, actpr5, actpr8, coupon2,
-feature2, display2, display_feature2, display_coupon2, shopnr3361,
-shopnr3362, shopnr3365, store1_price, store2_price, store3_price
+The dataset initially included 5,195 records across 11 brands, 109 weeks, and 48 stores.
 
-Response Variable: sales2
+#### 2.1.1 Variables
 
-The variables 'actpr2, actpr3, actpr4, actpr5, actpr8' and 'sales2' were
-transformed using the log function. The transformed variables,
-log(actpr2), log(actpr3), log(actpr4), log(actpr5), log(actpr8) and
-log(sales2), were then used in the analysis.
+- Explanatory Variables: `actpr2`, `actpr3`, `actpr4`, `actpr5`, `actpr8`, `coupon2`, `feature2`, `display2`, `display_feature2`, `display_coupon2`, `shopnr3361`, `shopnr3362`, `shopnr3365`, `store1_price`, `store2_price`, `store3_price`
+- Response Variable: `sales2`
 
-2.1.2 Dummy Variables
+All price and sales variables were transformed using log.
 
-The promotion variable \'prom i\' originally had seven categories. These
-categories were combined to simplify the analysis. This combination was
-implemented because the main promotions used are display, feature, and
-coupon.
-
-The data was filtered for four stores with shopnr values of 3361, 3362,
-3365, and 3366. Because local demographics, store size and local
-competition vary from store to store, it is critical to control for the
-impact of these factors on each store\'s sales. To analyze fixed
-effects, three dummy variables were created with shopnr 3366 as the
-reference.
-
-The final dummy variables are shown in Table 1.
-
-Table 1. Definitions for the dummy variables
+#### 2.1.2 Dummy Variables
 
 | **Variable name**     | **Description**                                               |
 |-----------------------|---------------------------------------------------------------|
-| `Feature_i`           | Equal to 1 if the promotion type of brand i is feature-only (text or picture) |
-| `coupon_i`            | Equal to 1 if the promotion type of brand i is coupon         |
-| `display_i`           | Equal to 1 if the promotion type of brand i is display-only (text or picture) |
-| `display_coupon_i`    | Equal to 1 if the promotion type of brand i is display with coupon |
-| `display_feature_i`   | Equal to 1 if the promotion type of brand i is display with feature |
-| `store3361`           | Equal to 1 if the `shopnr` value is 3361                      |
-| `store3362`           | Equal to 1 if the `shopnr` value is 3362                      |
-| `store3365`           | Equal to 1 if the `shopnr` value is 3365                      |
+| `Feature_i`           | 1 if promotion is feature-only (text or picture)              |
+| `coupon_i`            | 1 if promotion is coupon                                       |
+| `display_i`           | 1 if promotion is display-only                                 |
+| `display_coupon_i`    | 1 if promotion is display with coupon                          |
+| `display_feature_i`   | 1 if promotion is display with feature                         |
+| `store3361`           | 1 if `shopnr` is 3361                                          |
+| `store3362`           | 1 if `shopnr` is 3362                                          |
+| `store3365`           | 1 if `shopnr` is 3365                                          |
 
-2.1.3 Interaction Variables
+#### 2.1.3 Interaction Variables
 
-Table 2. Definitions for the interaction variables
-| **Variable name**  | **Description**                      |
-|--------------------|--------------------------------------|
-| `store1_price`     | `shop3361 * actpr2`                  |
-| `store2_price`     | `shop3362 * actpr2`                  |
-| `store3_price`     | `shop3365 * actpr2`                  |
+| **Variable name**  | **Description**             |
+|--------------------|-----------------------------|
+| `store1_price`     | `shop3361 * actpr2`         |
+| `store2_price`     | `shop3362 * actpr2`         |
+| `store3_price`     | `shop3365 * actpr2`         |
 
-**2.2 Data Preprocessing**
+### 2.2 Data Preprocessing
 
-2.2.1 Market Share
+#### 2.2.1 Market Share
 
 Market share was calculated based on total sales.
 
@@ -171,9 +140,9 @@ Figure 3: Final dataset summary statistics for key variables
 ![A table of numbers and symbols Description automatically
 generated](assets/img/price_analysis/media/image3.png)
 
-**2.3 Data Exploration**
+### 2.3 Data Exploration
 
-2.3.1 Market Mix for Herbal Essences
+#### 2.3.1 Market Mix for Herbal Essences
 
 Figure 4: Herbal Essences use of promotion types
 
@@ -187,7 +156,7 @@ were the most common tactic, used in 39 out of 436 weeks. The
 \"Display + Feature\" strategy was used 20 times, making it the second
 most common approach.
 
-2.3.2 Performance for Herbal Essences
+#### 2.3.2 Performance for Herbal Essences
 
 Figure 5: Herbal Essences sales performance across four shops
 
@@ -216,7 +185,7 @@ lower prices stimulate customer demand. In addition, all stores use
 similar pricing strategies, suggesting a coordinated approach by central
 management.
 
-[]{#_Toc177306405 .anchor}2.3.3 Performance for TOP5 Brands
+#### 2.3.3 Performance for TOP5 Brands
 
 Figure 7: Price trends of TOP5 brands in four stores
 
@@ -237,9 +206,9 @@ discounts, resulting in smaller price reductions. The chart also shows
 that several brands adjusted their prices at the same time, most likely
 in response to external market events such as holidays.
 
-**3.Model Specification**
+## 3.Model Specification
 
-**3.1 Model 1: Impact of Herbal Essences\' Market Mix on Sales**
+### 3.1 Model 1: Impact of Herbal Essences\' Market Mix on Sales
 
 In Model 1, variables including the actual price of Herbal Essences and
 various promotional strategies are incorporated to examine how the
@@ -247,9 +216,20 @@ brand's own market tactics influence its sales volume.
 
 The equation for the Model 1 was:
 
-$$Sales2 = \lambda \cdot {actpr2}^{\beta} \cdot {\gamma_{1}}^{coupon2} \cdot {\gamma_{2}}^{feature2} \cdot {\gamma_{3}}^{display2} \cdot {\gamma_{4}}^{display\_ feature2} \cdot {\gamma_{5}}^{display\_ coupon2} \cdot e^{u}$$
+<div align="center">
 
-**3.2 Model 2: Impact of Herbal Essences\' Market Mix on Sales with Store Fixed Effects**
+$$
+\begin{aligned}
+Sales2 =\ & \lambda \cdot actpr2^{\beta} \cdot \gamma_{1}^{coupon2} \cdot \gamma_{2}^{feature2} \cdot \gamma_{3}^{display2} \\
+& \cdot \gamma_{4}^{display\_feature2} \cdot \gamma_{5}^{display\_coupon2} \cdot e^{u}
+\end{aligned}
+$$
+
+</div>
+
+
+
+### 3.2 Model 2: Impact of Herbal Essences\' Market Mix on Sales with Store Fixed Effects
 
 Model 2 includes store fixed effects to examine variation at the store
 level. By including dummy variables for each store, the model controls
@@ -257,9 +237,21 @@ for store-specific factors that may affect sales.
 
 The equation for the Model 2 was:
 
-$$Sales2 = \lambda \cdot {actpr2}^{\beta} \cdot {\gamma_{1}}^{coupon2} \cdot {\gamma_{2}}^{feature2} \cdot {\gamma_{3}}^{display2} \cdot {\gamma_{4}}^{display\_ feature2} \cdot {\gamma_{5}}^{display\_ coupon2} \cdot {\gamma_{6}}^{shopnr3361} \cdot {\gamma_{7}}^{shopnr3362} \cdot {\gamma_{8}}^{shopnr3365} \cdot {\gamma_{9}}^{store1\_ price} \cdot {\gamma_{10}}^{store2\_ price} \cdot {\gamma_{11}}^{store3\_ price} \cdot e^{u}$$
+<div align="center">
 
-**3.3 Model 3: Impact of TOP 5 Brands\' Market
+$$
+\begin{aligned}
+Sales2 =\ & \lambda \cdot actpr2^{\beta} \cdot \gamma_{1}^{coupon2} \cdot \gamma_{2}^{feature2} \cdot \gamma_{3}^{display2} \cdot \gamma_{4}^{display\_feature2} \\
+& \cdot \gamma_{5}^{display\_coupon2} \cdot \gamma_{6}^{shopnr3361} \cdot \gamma_{7}^{shopnr3362} \cdot \gamma_{8}^{shopnr3365} \\
+& \cdot \gamma_{9}^{store1\_price} \cdot \gamma_{10}^{store2\_price} \cdot \gamma_{11}^{store3\_price} \cdot e^{u}
+\end{aligned}
+$$
+
+</div>
+
+
+
+### 3.3 Model 3: Impact of TOP 5 Brands\' Market
 Mix on Sales with Store Fixed Effects**
 
 Model 3 incorporates the actual prices of Garnier Fructis, Dove,
@@ -269,11 +261,24 @@ for store-specific factors.
 
 The equation for the Model 3 was:
 
-$$Sales2 = \lambda \cdot {actpr2}^{\beta 1} \cdot {actpr3}^{\beta 2} \cdot {actpr4}^{\beta 3} \cdot {actpr5}^{\beta 4} \cdot {actpr8}^{\beta 5} \cdot {\gamma_{1}}^{coupon2} \cdot {\gamma_{2}}^{feature2} \cdot {\gamma_{3}}^{display2} \cdot {\gamma_{4}}^{display\_ feature2} \cdot {\gamma_{5}}^{display\_ coupon2} \cdot {\gamma_{6}}^{shopnr3361} \cdot {\gamma_{7}}^{shopnr3362} \cdot {\gamma_{8}}^{shopnr3365} \cdot {\gamma_{9}}^{store1\_ price} \cdot {\gamma_{10}}^{store2\_ price} \cdot {\gamma_{11}}^{store3\_ price} \cdot e^{u}$$
 
-**4.Results**
+<div align="center">
 
-**4.1 Model 1: Impact of Herbal Essences\' Market Mix on Sales**
+$$
+\begin{aligned}
+Sales2 =\ & \lambda \cdot actpr2^{\beta_1} \cdot actpr3^{\beta_2} \cdot actpr4^{\beta_3} \cdot actpr5^{\beta_4} \cdot actpr8^{\beta_5} \\
+& \cdot \gamma_{1}^{coupon2} \cdot \gamma_{2}^{feature2} \cdot \gamma_{3}^{display2} \cdot \gamma_{4}^{display\_feature2} \\
+& \cdot \gamma_{5}^{display\_coupon2} \cdot \gamma_{6}^{shopnr3361} \cdot \gamma_{7}^{shopnr3362} \cdot \gamma_{8}^{shopnr3365} \\
+& \cdot \gamma_{9}^{store1\_price} \cdot \gamma_{10}^{store2\_price} \cdot \gamma_{11}^{store3\_price} \cdot e^{u}
+\end{aligned}
+$$
+
+</div>
+
+
+## 4.Results
+
+### 4.1 Model 1: Impact of Herbal Essences\' Market Mix on Sales
 
 ![A screenshot of a table Description automatically
 generated](assets/img/price_analysis/media/image8.png)
@@ -302,7 +307,7 @@ The R-square is 0.1294, indicating the model explains approximately
 suggests that the model does not include other key variables that have a
 significant impact on the dependent variable.
 
-**4.2 Model 2: Impact of Herbal Essences\' Market Mix on Sales with Store Fixed Effects**
+## 4.2 Model 2: Impact of Herbal Essences\' Market Mix on Sales with Store Fixed Effects
 
 ![A screenshot of a table Description automatically
 generated](assets/img/price_analysis/media/image9.png)
@@ -320,7 +325,7 @@ store1_price, store2_price, and store3_price are not statistically
 significant, indicating that there is little difference in price
 elasticity across stores.
 
-**4.3 Model 3: Impact of TOP 5 Brands\' Market
+## 4.3 Model 3: Impact of TOP 5 Brands\' Market
 Mix on Sales with Store Fixed Effects**
 
 ![A screenshot of a spreadsheet Description automatically
@@ -357,7 +362,7 @@ The Durbin-Watson test statistic falls between 0 and the lower bound
 (dl), leading to the rejection of the null hypothesis. This indicates
 positive autocorrelation in the residuals.
 
-**4.4 Model fitting**
+## 4.4 Model fitting
 
 Figure 8: Comparison of Observed vs. Predicted Sales
 
@@ -383,7 +388,7 @@ fit, tracking sales data effectively across all stores. It performs best
 in predicting moderate sales levels but struggles with very high sales
 peaks or sudden spikes.
 
-**5. Discussion**
+# 5. Discussion
 
 - Among the various promotional strategies for Herbal Essences, the
   combination of displays and features has a highly significant and
